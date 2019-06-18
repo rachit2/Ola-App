@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  mobile: MyText
+  password: MyText
+  address: MyText
+  email: MyText
+  license_no: MyText
+  expiry_date: MyText
+  working: false
+  references: 
+
+two:
+  name: MyString
+  mobile: MyText
+  password: MyText
+  address: MyText
+  email: MyText
+  license_no: MyText
+  expiry_date: MyText
+  working: false
+  references: 
