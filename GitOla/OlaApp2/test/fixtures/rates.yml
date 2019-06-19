@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rates_per_km: 1
+  driver_charges: 1
+  cancel_charges: 1
+
+two:
+  rates_per_km: 1
+  driver_charges: 1
+  cancel_charges: 1
