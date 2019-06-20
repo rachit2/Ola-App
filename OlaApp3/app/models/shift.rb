@@ -1,3 +1,7 @@
 class Shift < ApplicationRecord
-#DELETED
+	#DELETED
+
+  # has_many :Ride
+  # belongs_to :Driver
+
 end
