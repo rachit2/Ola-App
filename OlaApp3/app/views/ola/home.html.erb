@@ -1,0 +1,47 @@
+<h1>OLA</h1>
+
+
+<% if current_user %>
+<%= form_with scope: :ola, url: ride_create_path, local: true do |form| %>
+
+ <p>
+    <%= form.label :from %><br>
+    <%= form.text_field :from %>
+  </p>
+ 
+  <p>
+    <%= form.label :to %><br>
+    <%= form.text_field :to %>
+  </p>
+ 
+<p>
+    <b>Cab</b><br />
+    <%= form.radio_button :cab, 'auto' %> Auto<br />
+    <%= form.radio_button :cab, 'micro' %> Micro<br />
+    <%= form.radio_button :cab, 'mini' %> Mini<br />
+    <%= form.radio_button :cab, 'bike' %> Bike<br />
+    <%= form.radio_button :cab, 'prime_seldon' %> Prime Seldon<br />
+</p>
+
+
+  <p>
+    <%= form.submit 'RIDE NOW' %>
+  </p>
+<% end %>
+
+
+
+	<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+	
+		<% else %>
+			<%= link_to 'Customer  login', new_user_session_path %>
+	<%= link_to 'Driver login', new_user_session_path %>
+
+
+
+	<% end %>
+
+
+
+
+
