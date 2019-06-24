@@ -1,15 +1,14 @@
 class CreateRides < ActiveRecord::Migration[5.2]
   def change
     create_table :rides do |t|
-      t.integer :fare
       t.integer :distance
-      t.string :from
-      t.string :to
+      t.string :pickup_point
+      t.string :drop_point
       t.datetime :wait_time
-      t.references :Shift, foreign_key: true
-      t.references :User, foreign_key: true
-      t.references :Coupon, foreign_key: true
-      
+      t.datetime :start_time
+      t.datetime :end_time
+      t.references :user
+      t.references :coupon
       t.timestamps
     end
   end

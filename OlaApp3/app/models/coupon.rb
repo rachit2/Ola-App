@@ -1,3 +1,3 @@
 class Coupon < ApplicationRecord
-	belongs_to :Ride
+	has_one :ride
 end

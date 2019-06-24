@@ -10,64 +10,104 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_20_103058) do
+ActiveRecord::Schema.define(version: 2019_06_24_125817) do
+
+  create_table "cab_details", force: :cascade do |t|
+    t.text "number_plate"
+    t.integer "cab_id"
+    t.integer "driver_detail_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cab_id"], name: "index_cab_details_on_cab_id"
+    t.index ["driver_detail_id"], name: "index_cab_details_on_driver_detail_id"
+  end
 
   create_table "cabs", force: :cascade do |t|
-    t.string "type"
+    t.string "cab_type"
     t.integer "minimum_charge"
-    t.string "class"
+    t.string "class_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "coupons", force: :cascade do |t|
-    t.string "type"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "rates", force: :cascade do |t|
-    t.integer "rates_per_km"
-    t.integer "driver_charges"
-    t.integer "cancel_charge"
-    t.integer "paid_by_cash"
-    t.integer "paid_by_card"
-    t.integer "Ride_id"
+  create_table "customer_passes", force: :cascade do |t|
+    t.datetime "expiry_date"
+    t.integer "cvv"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Ride_id"], name: "index_rates_on_Ride_id"
+    t.index ["user_id"], name: "index_customer_passes_on_user_id"
+  end
+
+  create_table "driver_details", force: :cascade do |t|
+    t.string "license_no"
+    t.datetime "expiry_date"
+    t.string "shift"
+    t.string "status"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_driver_details_on_user_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "card_number"
+    t.integer "rate_per_km"
+    t.integer "driver_charge"
+    t.integer "cancel_charge"
+    t.string "payment_status"
+    t.integer "total_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "rides", force: :cascade do |t|
-    t.integer "fare"
     t.integer "distance"
-    t.string "from"
-    t.string "to"
+    t.string "pickup_point"
+    t.string "drop_point"
     t.datetime "wait_time"
-    t.integer "Shift_id"
-    t.integer "User_id"
-    t.integer "Coupon_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer "user_id"
+    t.integer "coupon_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Coupon_id"], name: "index_rides_on_Coupon_id"
-    t.index ["Shift_id"], name: "index_rides_on_Shift_id"
-    t.index ["User_id"], name: "index_rides_on_User_id"
+    t.index ["coupon_id"], name: "index_rides_on_coupon_id"
+    t.index ["user_id"], name: "index_rides_on_user_id"
   end
 
-  create_table "shifts", force: :cascade do |t|
-    t.datetime "login_time"
-    t.datetime "logout_time"
-    t.integer "Driver_id"
+  create_table "roles", force: :cascade do |t|
+    t.string "user_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Driver_id"], name: "index_shifts_on_Driver_id"
+  end
+
+  create_table "roles_users", id: false, force: :cascade do |t|
+    t.integer "role_id", null: false
+    t.integer "user_id", null: false
+    t.index ["role_id", "user_id"], name: "index_roles_users_on_role_id_and_user_id"
+    t.index ["user_id", "role_id"], name: "index_roles_users_on_user_id_and_role_id"
+  end
+
+  create_table "roleusers", force: :cascade do |t|
+    t.integer "role_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_roleusers_on_role_id"
+    t.index ["user_id"], name: "index_roleusers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.text "mobile"
     t.text "address"
-    t.text "role"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

@@ -1,4 +1,7 @@
 class DriverDetail < ApplicationRecord
-  belongs_to :Cab
-  has_and_belongs_to_many :User
+  has_one :cab_detail
+  belongs_to :user
+  #has_many :ride
+
+  #id user_id license_no expiry_date Shift Status
 end

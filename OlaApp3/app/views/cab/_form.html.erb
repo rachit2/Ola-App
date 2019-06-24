@@ -1,0 +1,30 @@
+<%= form_for  :cab, :url => { :action => "create" } do |form| %>
+<table>
+      
+
+    <div class="field"><tr>
+<td>      <%= form.label :cab_type %></td>
+<td>      <%= form.text_field :cab_type, id: :cab_type %></td>
+    </tr></div>
+
+
+    <div class="field">
+
+    <tr>
+
+      <td><%= form.label :minimum_charge %></td>
+
+      <td><%= form.text_field :minimum_charge, id: :minimum_charge%></td>
+</tr>
+    </div>
+    <div class="field">
+     <tr>
+      <td><%= form.label :class_type %></td>
+<td>      <%= form.text_field :class_type, id: :class_type %></td>
+    </div>
+  </tr>
+    <div class="actions">
+      <tr><td><%= form.submit %></td></td>
+    </div>
+  </table>
+<% end %>

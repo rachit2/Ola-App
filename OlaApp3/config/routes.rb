@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
- 
-	root to: 'ola#home'
-
+ 	root to: 'ola#home'
   devise_for :users
-post 'ride/create'
+
+  resources :ride
+	
+ resources :admin
+ resources :driver
+ resources :customer
+resources :cab
+
 end

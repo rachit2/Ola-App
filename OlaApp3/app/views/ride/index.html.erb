@@ -1,0 +1,66 @@
+<h1>Enter Ride Details:</h1>
+
+<%= form_for  :ride, :url => { :action => "create" } do |form| %>
+
+<p>
+    <%= form.label :pickup_point %><br />
+    <%=form.select :pickup_point, ["rajwada"], :prompt=>'Select One' %>
+</p>
+
+
+
+
+  <p>
+    <%= form.label :drop_point %><br>
+    <%=form.select :drop_point, ["palasia"], :prompt=>'Select One' %>
+  </p>
+ 
+<p>
+    <b>Cab</b><br />
+    <%= form.radio_button :cab, 'auto' %> Auto<br />
+    <%= form.radio_button :cab, 'micro' %> Micro<br />
+    <%= form.radio_button :cab, 'mini' %> Mini<br />
+    <%= form.radio_button :cab, 'bike' %> Bike<br />
+    <%= form.radio_button :cab, 'prime_seldon' %> Prime Seldon<br />
+</p>
+
+
+
+  <p>
+    <%= form.label :distane %><br>
+    <%= form.text_field :distance %>
+  </p>
+
+  <p>
+    <%= form.label :wait_time %><br>
+    <%= form.text_field :wait_time %>
+  </p>
+ 
+
+  <p>
+    <%= form.label :start_time %><br>
+    <%= form.text_field :start_time %>
+  </p>
+ 
+ 
+  <p>
+    <%= form.label :end_time %><br>
+    <%= form.text_field :end_time %>
+  </p>
+ 
+<p>
+    <%= form.label :coupon_code %><br>
+    <%= form.text_field :coupon_code %>
+  </p>
+ 
+    
+
+
+  <p>
+    <%= form.submit 'RIDE NOW' %>
+  </p>
+
+
+	<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+
+  <% end %>
