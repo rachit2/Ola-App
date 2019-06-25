@@ -2,33 +2,28 @@
 
 
 <% if user_signed_in? %>
-
-
-
-
-      <%= link_to "User Ride", ride_index_path %>
-   
-<%=link_to "Driver Ride", driver_index_path %> 
-<%=link_to "For Admin", admin_index_path %> 
-
-
- 
-
-  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-  
-
-
-
+	<h5>WELCOME TO OLA</h5>
+	<% if (current_user.role_ids==[2] )%>
 	
-		<% else %>
+ 		<%= link_to 'Take a ride', customer_index_path %>
+ 		
+ 	
 
+	<% elsif (current_user.role_ids==[3] )%>
+	
+ 			<%= link_to 'Driver ', driver_index_path %>
 
+ 	  
 
+	<% elsif (current_user.role_ids==[1]) %>
+	
+  	<%= link_to 'Admin ', admin_index_path %>
+ <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
 
-			<%= link_to 'Customer  login', new_user_session_path(:role_id => 3) %>
-  <%= link_to 'Driver login', new_user_session_path %>
-
-  <%= link_to 'Admin login', new_user_session_path %>
-
-
+	<%end%> 	
+ 	<% else %>
+		<%= link_to 'Customer  login', new_user_registration_path(:role_id=>2)%>
+  	<%= link_to 'Driver login', new_user_registration_path(:role_id=>3) %>
+  	<%= link_to 'Admin login', new_user_registration_path(:role_id=>1) %>
+  	<%= link_to 'sign_up', new_user_session_path %>
 	<% end %>

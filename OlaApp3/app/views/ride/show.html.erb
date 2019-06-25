@@ -7,7 +7,7 @@
 		from=<%= @ride.pickup_point %>
 		<br>to=<%= @ride.drop_point %>
 	<br>total distance=<%= @ride.distance %>
-	<br>Wait time=<%= @ride.wait_time%>
 
+	<%=link_to "Pay now", payment_index_path%>
 
 </h1>

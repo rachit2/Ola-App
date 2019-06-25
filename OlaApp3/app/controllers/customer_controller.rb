@@ -14,11 +14,11 @@ class CustomerController < ApplicationController
 	def lists_cab
 		#1. List of Cabs associated with drivers where driver status is available
 
-		drivers = DriverDetails.all
+		# drivers = DriverDetails.all
 		
-		#2. Fetch cabdetails associated with driverdetails 
+		# #2. Fetch cabdetails associated with driverdetails 
 		
-		drivers = DriverDetails.map{|driver| [--------]}
+		# drivers = DriverDetails.map{|driver| [--------]}
 
 		# Redirect to Cutomer View
 	end
