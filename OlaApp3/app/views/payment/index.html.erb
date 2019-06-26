@@ -1,7 +1,22 @@
 <h1>
 	
-Payment 
+<b>Payment</b> 
+<br>
+<% byebug %>
 
+	<% @fare=params[:fare] %>
+	</b>Total Fare=
+	<%= @fare %>
+	<br>
+	
+<%= form_for  :payment, :url => { :action => "create",  params: {fare: @fare}} do |form| %>
+<p>
+    <%= form.label :card_number %><br>
+    <%= form.text_field :card_number %>
+  </p>
 
+  <%= form.submit 'Process Payment' %>
+<% end %>
 
+<%= link_to 'Cancel And Sign out', destroy_user_session_path, method: :delete %>
 </h1>

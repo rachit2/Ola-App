@@ -7,8 +7,40 @@
   <br>
 
   <%= link_to 'CabDetails', cab_index_path %><br>
+  <%= link_to 'CabDetails', cab_index_path %><br>
   <br>
   
+
+
+<h1>Driver Details</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @driver=User.where("user.role_ids = 3")%>
+  <% byebug %>
+  <% @driver.each do |driver| %>
+
+      <td><%= driver.id %></td>
+      <td><%= driver.name %></td>
+
+        </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+
 
 
 
@@ -28,7 +60,7 @@
   <tbody>
   <% @customer=User.all%>
   <% @customer.each do |user| %>
-
+        
       <td><%= user.id %></td>
       <td><%= user.name %></td>
 
@@ -41,32 +73,6 @@
 
 <%= link_to 'New Customer', new_user_session_path %>
 
-
-
-<h1>Driver</h1>
-
-<table>
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @customer=User.all%>
-  <% @customer.each do |user| %>
-
-      <td><%= user.id %></td>
-      <td><%= user.name %></td>
-
-        </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<br>
 
 <%= link_to 'New Driver', new_user_session_path %>
 
@@ -96,3 +102,6 @@
 </table>
 
 <br>
+
+
+ <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>

@@ -6,8 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# CabDetail.create(number_plate:"MP26DK8332",cab_id:1,driver_detail_id:2)
-# CabDetail.create(number_plate:"MP26DK8333",cab_id:1,driver_detail_id:3)
 
-# CabDetail.create(number_plate:"MP26DK8334",cab_id:2,driver_detail_id:4)
-# CabDetail.create(number_plate:"MP26DK8335",cab_id:3,driver_detail_id:5)
+ # DriverDetail.create(license_no:"AB12",expiry_date:"22-10-2016",shift:"10-8",status:"Available",user_id:56)
+
+
+
+CabDetail.create(number_plate:"MP26DK8332",cab_id:1,driver_detail_id:1)
+CabDetail.create(number_plate:"MP26DK8334",cab_id:2,driver_detail_id:1)
+CabDetail.create(number_plate:"MP26DK8335",cab_id:3,driver_detail_id:1)
+CabDetail.create(number_plate:"MP26DK8336",cab_id:4,driver_detail_id:1)
+

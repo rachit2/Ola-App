@@ -5,6 +5,7 @@ class CreateDriverDetails < ActiveRecord::Migration[5.2]
       t.datetime :expiry_date
       t.string :shift
       t.string :status
+      t.integer :minimum_charge
       t.references :user, foreign_key: true
       
       t.timestamps

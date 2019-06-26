@@ -9,6 +9,7 @@ class CabController < ApplicationController
     @cab = Cab.new
   end
   def edit
+      @cab = Cab.find(params[:id])
   end
   def create
     @cab = Cab.new(cab_params)
@@ -22,17 +23,24 @@ class CabController < ApplicationController
   end
 
   def update
-      if @cab.update(cab_params)
-      	  redirect_to [@cab,:index]
-    end
-end  
+  @cab = Cab.find(params[:id])
+ 
+  if @cab.update(cab_params)
+    redirect_to @cab
+  else
+    render 'edit'
+  end
+end
+private
+  def cab_params
+    params.require(:cab).permit(:cab_type, :minimum_charge,:class_type,:rate_per_km)
+  end
   def destroy
-      if @cab.destroy
-
-      else
-
-      end
-    end
+ @cab = Cab.find(params[:id])
+  @cab.destroy
+ 
+  redirect_to cabs_path
+end
 
   private
   def cab_params

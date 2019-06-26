@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_24_125817) do
+ActiveRecord::Schema.define(version: 2019_06_24_112743) do
 
   create_table "cab_details", force: :cascade do |t|
     t.text "number_plate"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_06_24_125817) do
     t.string "cab_type"
     t.integer "minimum_charge"
     t.string "class_type"
+    t.integer "rate_per_km"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_06_24_125817) do
     t.datetime "expiry_date"
     t.string "shift"
     t.string "status"
+    t.integer "minimum_charge"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,9 +60,7 @@ ActiveRecord::Schema.define(version: 2019_06_24_125817) do
 
   create_table "payments", force: :cascade do |t|
     t.string "card_number"
-    t.integer "rate_per_km"
-    t.integer "driver_charge"
-    t.integer "cancel_charge"
+    t.integer "cancel_charge", default: 0
     t.string "payment_status"
     t.integer "total_amount"
     t.datetime "created_at", null: false
@@ -93,15 +93,6 @@ ActiveRecord::Schema.define(version: 2019_06_24_125817) do
     t.integer "user_id", null: false
     t.index ["role_id", "user_id"], name: "index_roles_users_on_role_id_and_user_id"
     t.index ["user_id", "role_id"], name: "index_roles_users_on_user_id_and_role_id"
-  end
-
-  create_table "roleusers", force: :cascade do |t|
-    t.integer "role_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["role_id"], name: "index_roleusers_on_role_id"
-    t.index ["user_id"], name: "index_roleusers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

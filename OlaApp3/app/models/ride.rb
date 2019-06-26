@@ -12,7 +12,6 @@ class Ride < ApplicationRecord
 	belongs_to :coupon
 
 
-
 	#has_one :Payment
 
 	#Ride:-
