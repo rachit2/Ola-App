@@ -7,7 +7,6 @@ class CreateRides < ActiveRecord::Migration[5.2]
       t.datetime :wait_time
       t.datetime :start_time
       t.datetime :end_time
-      t.references :user
       t.references :coupon
       t.timestamps
     end

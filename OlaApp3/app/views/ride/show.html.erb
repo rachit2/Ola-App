@@ -1,4 +1,3 @@
-
 <h1>
 	Ride Details:-</h1>
 
@@ -10,13 +9,20 @@
 		<br><b>to=
 	</b><%= @ride.drop_point %>
 	<br><b>total distance=</b>
-
 	<%= @ride.distance %>
 	<br>
-
+		<% if (current_user.role_ids==[2] )%>
+	
 	<% @fare=params[:fare] %>
-	</b>Total Fare=
+	<b>Total Fare=</b>
 	<%= @fare %>
-	<br>
-	<% byebug %>
-	<%=link_to "Confirm And Pay now", payment_index_path(:fare=>@fare)%>
+			
+
+			<%=link_to "Confirm And Pay now", payment_index_path(:fare=>@fare)%>
+		<% elsif (current_user.role_ids==[3] )%>
+				<% @fare=Payment.last.total_amount %>
+	<b>Total Fare=</b>
+			<%= @fare %>
+			<br>					
+			<%=link_to "End Ride", drivers_path%>
+		<% end %>	

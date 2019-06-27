@@ -5,18 +5,28 @@ class DriversController < ApplicationController
 
 	end
 	
-	 def ride_request
-			binding.pry
+	def new
+		# binding.pry
+		# @driver=User.new
+	end
+	
+	def show
+	# binding.pry
+	end
+	
+	def edit
+	end
 
+
+	 def ride_request
+	
+     @customer= User.all.select{|m| m.role_ids == [2]}.last
+     
 	 end
 
 # def create
 # end
 	
-	def new
-		# binding.pry
-		# @driver=User.new
-	end
 
 
 end

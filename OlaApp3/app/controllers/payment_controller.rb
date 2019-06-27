@@ -8,12 +8,17 @@ def new
 end
 
 def create
+	
+	
  	@user=current_user
  	@ride=Ride.last
- 	byebug
  	@payment=@user.payment.build(pay_params)
-
- 		
+ 	@payment.payment_status="Done"
+ 	@payment.total_amount=params[:fare]
+ 	
+ 	if @payment.save
+ 		redirect_to :action => "show", :id => current_user.id
+ 	end
  	# if(@ride.distance==0)
 
     #  if @ride.save

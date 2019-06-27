@@ -8,7 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :mobile
       t.text :address
-    
+      t.boolean :admin    
 
 
 

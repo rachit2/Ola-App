@@ -1,10 +1,10 @@
 class RideController < ApplicationController
 
 def create
- 
+  
    @user=current_user
   @fare=0
-   @ride=@user.rides.build(ride_params) # or ride_params
+   @ride=@user.rides.build(ride_params) 
   @coupon = Coupon.all 
 
     @coupon.each do |coupon|
@@ -17,10 +17,11 @@ def create
   end
 
 
-  
+
+    
   @cab=Cab.all
     @cab.each do |cab|
-      byebug
+     
       if(cab.cab_type==params[:ride][:cab])
         
         if(params[:ride][:distance]==0)

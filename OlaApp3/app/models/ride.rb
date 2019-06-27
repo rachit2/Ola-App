@@ -7,7 +7,7 @@ class Ride < ApplicationRecord
  	
 
 
- 	belongs_to :user
+ 	has_and_belongs_to_many :user
 	#belongs_to :driver_detail
 	belongs_to :coupon
 

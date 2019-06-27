@@ -15,7 +15,7 @@ gem 'pry'
 gem 'bootstrap-sass'
 
 
-gem 'rails_admin', '~> 2.0.0.beta'
+gem 'rails_admin'
 
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

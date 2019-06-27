@@ -2,10 +2,14 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   # after_create :assign_role
-  has_and_belongs_to_many :roles
+
+
+ validates :name,:mobile,:address, presence: true
+validates :mobile, numericality: { only_integer: true }, length: { is: 10 }
+ has_and_belongs_to_many :roles
   has_one :driver_detail
-  has_many :rides
-  has_one :payment
+  has_and_belongs_to_many :rides
+  has_many :payment
 
   #user:-
   #id name email mobile address password 
