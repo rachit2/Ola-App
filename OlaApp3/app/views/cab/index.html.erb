@@ -1,34 +1,61 @@
+<h1> Searching for-<%=@search_term %></h1>
+
+
+
+
+<h1>Cabs of rajwada:-</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>CAB_TYPE</th>
+      <th>MINIMUM_CHARGE</th>
+      <th>CLASS_TYPE</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cabs=Cab.all%>
+    <% @cabs.each do |cab| %>
+      <td><%= cab.id %></td>
+      <td><%= cab.cab_type %></td>
+      <td><%= cab.minimum_charge %></td>
+      <td><%= cab.class_type %></td>
+     <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Car', new_cab_path %>
+<%= link_to 'Update Car', new_cab_path %>
+<%= link_to 'New Car', new_cab_path %>
+
+
+
+
 <h1>Cabs</h1>
 
 <table>
   <thead>
-  <tr>
-    <th>ID</th>
-    <th>CAB_TYPE</th>
-    <th>MINIMUM_CHARGE</th>
-    <th>CLASS_TYPE</th>
- 
-  </tr>
+    <tr>
+      <th>ID</th>
+      <th>CAB_TYPE</th>
+      <th>MINIMUM_CHARGE</th>
+      <th>CLASS_TYPE</th>
+    </tr>
   </thead>
 
   <tbody>
-  <% @cabs=Cab.all%>
-  <% @cabs.each do |cab| %>
-
+    <% @cabs=Cab.all%>
+    <% @cabs.each do |cab| %>
       <td><%= cab.id %></td>
       <td><%= cab.cab_type %></td>
-
       <td><%= cab.minimum_charge %></td>
-
       <td><%= cab.class_type %></td>
-
-        </tr>
-  <% end %>
+     <% end %>
   </tbody>
 </table>
-
 <br>
-
 <%= link_to 'New Car', new_cab_path %>
 <%= link_to 'Update Car', new_cab_path %>
 <%= link_to 'New Car', new_cab_path %>

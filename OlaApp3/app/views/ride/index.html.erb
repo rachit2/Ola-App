@@ -1,71 +1,32 @@
 <h1>Enter Ride Details:</h1>
-
 <%= form_for  :ride, :url => { :action => "create" } do |form| %>
-
-<p>
-
-
-    <%= form.label :pickup_point %><br />
-    <%=form.select :pickup_point, ["rajwada"], :prompt=>'Select One' %>
-</p>
-
-
-
-
+  <p>
+  <%= form.label :pickup_point %><br />
+  <%=form.select :pickup_point, ["rajwada"], :prompt=>'Select One' %>
+  </p>
   <p>
     <%= form.label :drop_point %><br>
     <%=form.select :drop_point, ["palasia"], :prompt=>'Select One' %>
   </p>
- 
-<p>
+  <p>
     <b>Cab</b><br />
     <%= form.radio_button :cab, 'Auto' %> Auto<br />
     <%= form.radio_button :cab, 'Micro' %> Micro<br />
     <%= form.radio_button :cab, 'Mini' %> Mini<br />
     <%= form.radio_button :cab, 'Bike' %> Bike<br />
     <%= form.radio_button :cab, 'Prime Seldon' %> Prime Seldon<br />
-</p>
-
-
-
-  <p>
-    <%= form.label :distane %><br>
-    <%= form.text_field :distance,value:"10" %>
   </p>
-
+  <%= form.hidden_field :distance, value: 10 %>
+  <%= form.hidden_field :wait_time, value: "10 min" %>
+  <%= form.hidden_field :start_time, value: "1:20 pm" %>
+  <%= form.hidden_field :end_time, value: "2:20 pm" %>
   <p>
-    <%= form.label :wait_time %><br>
-    <%= form.text_field :wait_time %>
-  </p>
- 
-
-  <p>
-    <%= form.label :start_time %><br>
-    <%= form.text_field :start_time %>
-  </p>
- 
- 
-  <p>
-    <%= form.label :end_time %><br>
-    <%= form.text_field :end_time %>
-  </p>
- 
-<p>
     <%= form.label :coupon_code %><br>
     <%= form.text_field :coupon_code %>
   </p>
- 
-
-
- 
   <p>
     <%= form.submit 'RIDE NOW' %>
   </p>
-
   <%= link_to 'Ride Later', customer_index_path, :id => current_user.id  %>
-
-
   <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-
   <% end %>
- 

@@ -1,11 +1,18 @@
 <h1><%=current_user.name %></h1>
-
 <ul>
   <li><b>Mobile:-</b><%=current_user.mobile%></li> 
   <li><b>Email:-</b><%=current_user.email%></li>
   <li><b>Address:-</b><%=current_user.address%></li>
- 
 </ul>
+<h3>Ride History:-</h3>
 
+<% @ride.each do |ride| %>
+======================
+	<ul>
+      <li><b>Distance:-</b><%=ride.distance%></li> 
+  		<li><b>From:-</b><%=ride.pickup_point%></li>
+  		<li><b>To:-</b><%=ride.drop_point%></li>
+	</ul>
+<% end %>
 <%= link_to 'Edit Details', edit_customer_path, :id => current_user.id %>  
-<%= link_to 'Home', customer_index_path %>  
+<%= link_to 'Home', customer_index_path %> 

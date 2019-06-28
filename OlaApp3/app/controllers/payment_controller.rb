@@ -1,40 +1,21 @@
+# frozen_string_literal: true
+
 class PaymentController < ApplicationController
-def index
+  def index
+		@fare=params[:fare]
+   end
 
-end
+  def new
+    @payment = Payment.new
+  end
 
-def new
-	@payment=Payment.new
-end
+  def create
+    @user = current_user
+		@payment = @user.payments.build
+    @payment.payment_status = 'Done'
+    @payment.total_amount = params[:fare]
+		redirect_to action: 'show', id: current_user.id if @payment.save
+  end
 
-def create
-	
-	
- 	@user=current_user
- 	@ride=Ride.last
- 	@payment=@user.payment.build(pay_params)
- 	@payment.payment_status="Done"
- 	@payment.total_amount=params[:fare]
- 	
- 	if @payment.save
- 		redirect_to :action => "show", :id => current_user.id
- 	end
- 	# if(@ride.distance==0)
-
-    #  if @ride.save
-    # redirect_to :action => "show", :id => current_user.id, :fare=>@fare
-    # render :show , locals: {:id=>current_user.id, :fare=>@fare}
-    #  end
-
-end
-
-private
-  def pay_params
-    params.require(:payment).permit(:card_number)
- 	end
-
-
-
-def show
-end
+  def show; end
 end

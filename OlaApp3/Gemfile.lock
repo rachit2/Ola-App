@@ -51,6 +51,7 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+    ast (2.4.0)
     autoprefixer-rails (9.6.0)
       execjs
     bcrypt (3.1.13)
@@ -100,9 +101,13 @@ GEM
     haml (5.1.1)
       temple (>= 0.8.0)
       tilt
+    httparty (0.17.0)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
+    jaro_winkler (1.5.3)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
     jquery-rails (4.3.5)
@@ -135,16 +140,23 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
+    mime-types (3.2.2)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2019.0331)
     mimemagic (0.3.3)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     msgpack (1.2.10)
+    multi_xml (0.6.0)
     nested_form (0.3.2)
     nio4r (2.3.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    parallel (1.17.0)
+    parser (2.6.3.0)
+      ast (~> 2.4.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -198,6 +210,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
+    rainbow (3.0.0)
     rake (12.3.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
@@ -207,7 +220,15 @@ GEM
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
+    rubocop (0.72.0)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.6)
+      rainbow (>= 2.2.2, < 4.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 1.7)
     ruby-graphviz (1.2.4)
+    ruby-progressbar (1.10.1)
     ruby_dep (1.5.0)
     rubyzip (1.2.3)
     sass (3.7.4)
@@ -250,6 +271,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
+    unicode-display_width (1.6.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -274,6 +296,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  httparty
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pry
@@ -281,6 +304,7 @@ DEPENDENCIES
   rails (~> 5.2.3)
   rails-erd
   rails_admin
+  rubocop
   ruby-graphviz
   sass-rails (~> 5.0)
   selenium-webdriver

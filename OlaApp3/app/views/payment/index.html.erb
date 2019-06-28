@@ -1,22 +1,11 @@
 <h1>
-	
 <b>Payment</b> 
 <br>
 
+</b>Total Fare=
+<%= @fare %>
+<br>	
 
-	<% @fare=params[:fare] %>
-	</b>Total Fare=
-	<%= @fare %>
-	<br>
-	
-<%= form_for  :payment, :url => { :action => "create",  params: {fare: @fare}} do |form| %>
-<p>
-    <%= form.label :card_number %><br>
-    <%= form.text_field :card_number %>
-  </p>
+<%= link_to 'Pay', payment_index_path(fare:@fare), method: :post %>
 
-  <%= form.submit 'Process Payment' %>
-<% end %>
-
-<%= link_to 'Cancel And Sign out', destroy_user_session_path, method: :delete %>
 </h1>

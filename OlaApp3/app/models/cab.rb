@@ -1,5 +1,5 @@
-class Cab < ApplicationRecord
-	has_many :cab_detail
+# frozen_string_literal: true
 
-	#id type min_charge class
+class Cab < ApplicationRecord
+  has_many :cab_detail
 end

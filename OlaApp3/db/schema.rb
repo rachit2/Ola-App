@@ -14,19 +14,21 @@ ActiveRecord::Schema.define(version: 2019_06_27_121242) do
 
   create_table "cab_details", force: :cascade do |t|
     t.text "number_plate"
+    t.text "area"
     t.integer "cab_id"
-    t.integer "driver_detail_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cab_id"], name: "index_cab_details_on_cab_id"
-    t.index ["driver_detail_id"], name: "index_cab_details_on_driver_detail_id"
+    t.index ["user_id"], name: "index_cab_details_on_user_id"
   end
 
   create_table "cabs", force: :cascade do |t|
     t.string "cab_type"
-    t.integer "minimum_charge"
+    t.integer "minimum_charge", default: 0
     t.string "class_type"
     t.integer "rate_per_km"
+    t.integer "rate_per_hour"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,7 +41,6 @@ ActiveRecord::Schema.define(version: 2019_06_27_121242) do
 
   create_table "customer_passes", force: :cascade do |t|
     t.datetime "expiry_date"
-    t.integer "cvv"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -51,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_06_27_121242) do
     t.datetime "expiry_date"
     t.string "shift"
     t.string "status"
-    t.integer "minimum_charge"
+    t.datetime "tenure_expiry_date"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -59,7 +60,6 @@ ActiveRecord::Schema.define(version: 2019_06_27_121242) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.string "card_number"
     t.integer "cancel_charge", default: 0
     t.string "payment_status"
     t.integer "total_amount"
@@ -77,14 +77,18 @@ ActiveRecord::Schema.define(version: 2019_06_27_121242) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer "coupon_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["coupon_id"], name: "index_rides_on_coupon_id"
+    t.index ["user_id"], name: "index_rides_on_user_id"
   end
 
   create_table "rides_users", id: false, force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "ride_id", null: false
+    t.index ["ride_id", "user_id"], name: "index_rides_users_on_ride_id_and_user_id"
+    t.index ["user_id", "ride_id"], name: "index_rides_users_on_user_id_and_ride_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -104,7 +108,8 @@ ActiveRecord::Schema.define(version: 2019_06_27_121242) do
     t.string "name"
     t.text "mobile"
     t.text "address"
-    t.boolean "admin"
+    t.boolean "admin", default: false
+    t.string "city"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

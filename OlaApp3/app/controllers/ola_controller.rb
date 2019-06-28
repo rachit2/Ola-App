@@ -1,5 +1,5 @@
-class OlaController < ApplicationController
+# frozen_string_literal: true
 
-  def home
-  end
+class OlaController < ApplicationController
+  def home; end
 end

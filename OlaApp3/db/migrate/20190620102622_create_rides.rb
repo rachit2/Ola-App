@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateRides < ActiveRecord::Migration[5.2]
   def change
     create_table :rides do |t|
@@ -8,6 +10,7 @@ class CreateRides < ActiveRecord::Migration[5.2]
       t.datetime :start_time
       t.datetime :end_time
       t.references :coupon
+      t.references :user
       t.timestamps
     end
   end

@@ -1,25 +1,17 @@
 <h1>OLA</h1>
-
-
 <% if user_signed_in? %>
 	<h5>WELCOME TO OLA</h5>
+
 	<% if (current_user.role_ids==[2] )%>
-	
  		<%= link_to 'Take a ride', customer_index_path %>
- 		 <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
- 	
-
+ 		<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
 	<% elsif (current_user.role_ids==[3] )%>
-	
- 			<%= link_to 'Driver ', drivers_path %>
- 			 <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
- 	  
-
-	
-	<%end%> 	
+ 		<%= link_to 'Driver ', drivers_path %>
+ 		<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+ 	<%end%> 	
  	<% else %>
 		<%= link_to 'Customer  login', new_user_registration_path(:role_id=>2)%>
-  	<%= link_to 'Driver login', new_user_registration_path(:role_id=>3) %>
-  	
-  	<%= link_to 'sign_up', new_user_session_path %>
+	  	<%= link_to 'Driver login', new_user_registration_path(:role_id=>3) %>
+  		<%= link_to 'sign_up', new_user_session_path %>
 	<% end %>
+		

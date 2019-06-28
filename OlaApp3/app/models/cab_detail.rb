@@ -1,6 +1,6 @@
-class CabDetail < ApplicationRecord
-	belongs_to :driver_detail
-	belongs_to :cab
+# frozen_string_literal: true
 
-	# id cab_id driver_detail_id number_plate
+class CabDetail < ApplicationRecord
+  belongs_to :user
+  belongs_to :cab
 end
