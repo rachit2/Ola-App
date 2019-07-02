@@ -15,6 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     
     resource.role_ids = params[:user][:role_id]
+    
     resource.city_id = City.where(name:params[:user][:city]).first.id
     
     resource.save

@@ -20,6 +20,9 @@
     </b>
     <br>
     <%=link_to "End Ride And Pay now", payment_index_path(:fare=>params[:amt])%>
+    <%=link_to "Cancel Ride", cancel_ride_path %>
+    
+    
     <% elsif (current_user.role_ids.uniq==[3] )%>
       <% @fare=Payment.last.total_amount %>
       <b>Total Fare=</b>

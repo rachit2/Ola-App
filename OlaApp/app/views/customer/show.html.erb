@@ -12,6 +12,7 @@
       <li><b>Distance:-</b><%=ride.distance%></li> 
   		<li><b>From:-</b><%=ride.pickup_point%></li>
   		<li><b>To:-</b><%=ride.drop_point%></li>
+  		<li><b>Status:-</b><%=ride.status%></li>
 	</ul>
 <% end %>
 <%= link_to 'Edit Details', edit_customer_path, :id => current_user.id %>  

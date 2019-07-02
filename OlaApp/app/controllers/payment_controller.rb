@@ -11,7 +11,6 @@ class PaymentController < ApplicationController
 
   def create
     @user = current_user
-    
 		@payment = @user.payments.build
     @payment.payment_status = 'Done'
     @payment.total_amount = params[:fare]
