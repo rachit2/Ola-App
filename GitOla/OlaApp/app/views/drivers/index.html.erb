@@ -1,0 +1,5 @@
+<h1>Hello Driver</h1>
+
+<%= link_to 'My Profile', driver_path(current_user.id) %><br>
+<%= link_to 'Ride Requests', ride_request_path %><br>
+<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
