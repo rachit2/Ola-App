@@ -1,19 +1,17 @@
 # frozen_string_literal: true
 class RideController < ApplicationController
+  
   def create
-
     @user = current_user
     @fare = 0
     @amt = 0
     @ride = @user.rides.build(ride_params)
     @coupon=Coupon.where(description:params[:ride][:coupon_code]).pluck(:id).first
     @ride.coupon_id=@coupon
-   
     @cab=Cab.where(cab_type:params[:ride][:cab]).first
     if(params[:ride][:distance]==0)
       @fare=@cab.minimum_charge
     else
-    
       @fare=@cab.rate_per_km * params[:ride][:distance].to_i
     end
     @amt = if @ride.coupon_id == 2
@@ -37,7 +35,6 @@ class RideController < ApplicationController
         flash[:alert] = "Cab Not Available!"
         render template: 'customer/index'
     end
-  
   end
 
   def index
@@ -60,7 +57,6 @@ class RideController < ApplicationController
   def show; end
 
   private
-
   def ride_params
     params.require(:ride).permit(:coupon_id, :pickup_point, :drop_point, :distance, :wait_time, :start_time, :end_time, :fare)
   end

@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :roles
   has_one :cab_detail
   has_many :rides
-  has_many :payments
+  
   belongs_to :city
 
   devise :database_authenticatable, :registerable,

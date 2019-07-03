@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   get 'ride_request', to: 'drivers#ride_request'
 
-  get 'accept_ride', to: 'drivers#accept_ride'
+  get 'accept_ride', to: 'drivers#accept_ride',as: "accept_ride"
   get 'cancel_ride', to: 'ride#cancel_ride' 
 
 end

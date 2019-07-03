@@ -6,7 +6,7 @@ class CreatePayments < ActiveRecord::Migration[5.2]
       t.integer :cancel_charge, default: 0
       t.string :payment_status
       t.integer :total_amount
-      t.references :user
+      t.references :ride
       t.timestamps
     end
   end

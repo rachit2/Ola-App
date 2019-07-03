@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class DriversController < ApplicationController
-  def index; end
+  def index
 
-  def new; end
+   end
 
-
+  def new
+  end
 	def update
 	  @driver = current_user.id
-	 
 	  if @driver.update(params)
 	    redirect_to @driver
 	  else
@@ -17,41 +17,46 @@ class DriversController < ApplicationController
 	end
 
   def show
- 	@driver = DriverDetail.where(user_id:current_user.id).first
-  	@ride =	Ride.where(driver_detail_id:@driver.id).last
-  	@ride.status="completed"
-  	@driver.status="Avaiable"
-  	@driver.save
-  	@ride.save
+  	if params[:ride].present?
+	 		@ride=Ride.find(params[:ride])
+	  	@driver=DriverDetail.find(DriverDetail.where(user_id:params[:driver]).ids).first
+	  	@ride.status="completed"
+	  	@driver.status="Available"
+	  	 
+	  	@driver.save
+	  	@ride.save
+	 else	 	
+
+	 
+	 	@driver_id= DriverDetail.where(user_id:current_user.id).ids.first
+  	@ride_history = Ride.all.select { |m| m.driver_detail_id == @driver_id}
+  
+	  end
+
   end
 
   def edit
 		@driver = User.find(params[:id])
-	
    end
 
   def accept_ride
   	
-  	@driver = DriverDetail.where(user_id:current_user.id).first
-  	@ride =	Ride.where(driver_detail_id:@driver.id).last
+  	@ride=Ride.find(params[:ride])
+  	@driver=DriverDetail.find(DriverDetail.where(user_id:params[:driver]).ids).first
+		  	
   	@ride.status="running"
   	@driver.status="Occupied"
   	@driver.save
   	if @ride.save
   		redirect_to ride_path(current_user.id) 
   	end
-
   end
 
-
   def ride_request
-  
-		  @driver = DriverDetail.where(user_id:current_user.id).ids
-   		@ride =	Ride.where(driver_detail_id:@driver).last
+		@driver = DriverDetail.where(user_id:current_user.id).ids
+   	@ride =	Ride.where(driver_detail_id:@driver, status:"pending")
    		
-   		if @ride.present? && @ride.status=="Pending"
-   			@customer = User.where(id:@ride.user_id).first
-   		else
+   		if @ride.nil? || @ride==[]
    			 flash[:alert] = "No Ride Requests!"
    			render :action => :index
    		end

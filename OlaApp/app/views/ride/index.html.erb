@@ -2,8 +2,7 @@
 <%= form_for  :ride, :url => { :action => "create" } do |form| %>
   <p>
   <%= form.label :pickup_point %><br />
-
-  <% cities_array = @circle %>
+    <% cities_array = @circle %>
     <%= form.select :pickup_point, cities_array,:prompt=>'Select One'%>
   </p>
   <p>

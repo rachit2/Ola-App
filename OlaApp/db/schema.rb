@@ -78,10 +78,10 @@ ActiveRecord::Schema.define(version: 2019_07_01_081128) do
     t.integer "cancel_charge", default: 0
     t.string "payment_status"
     t.integer "total_amount"
-    t.integer "user_id"
+    t.integer "ride_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_payments_on_user_id"
+    t.index ["ride_id"], name: "index_payments_on_ride_id"
   end
 
   create_table "rides", force: :cascade do |t|
