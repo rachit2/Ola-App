@@ -1,16 +1,36 @@
-<h1>OLA</h1>
-<% if user_signed_in? %>
-	<h5>WELCOME TO OLA</h5>
-	<% if (current_user.role_ids.uniq == [2] )%>
- 			<%= link_to 'Take a ride', customer_index_path %>
- 			<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-	<% elsif (current_user.role_ids.uniq == [3] )%>
- 			<%= link_to 'Driver ', drivers_path %>
- 			<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
- 	<%end%> 	
- 	<% else %>
-			<%= link_to 'Customer  login', new_user_registration_path(:role_id=>2)%>
-	  	<%= link_to 'Driver login', new_user_registration_path(:role_id=>3) %>
-  		<%= link_to 'sign_up', new_user_session_path %>
-	<% end %>
-	
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OLA APP</title>
+</head>
+<body>
+
+	<% if user_signed_in? %>
+		<% if (current_user.role_ids.uniq == [2] )%>
+			<ul class="nav navbar-nav navbar-right">
+      	<li><a href=<%=customer_index_path %>><span class="glyphicon glyphicon-user"></span>Take a Ride </a></li>
+      	<li><span class="glyphicon glyphicon-user"></span><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+    	</ul>
+		<% elsif (current_user.role_ids.uniq == [3] )%>
+			<ul class="nav navbar-nav navbar-right">
+	      <li><a href=<%=drivers_path %>><span class="glyphicon glyphicon-user"></span>Driver </a></li>
+	      <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %><span class="glyphicon glyphicon-user"></span>Sign Out</li>
+  		</ul>
+    <% end %>
+		<% else %> 
+    	<ul class="nav navbar-nav navbar-right">
+      	<li><a href=<%=new_user_registration_path(:role_id=>2) %>><span class="glyphicon glyphicon-user"></span>Customer Signup</a></li>
+      	<li><a href=<%=new_user_registration_path(:role_id=>3)%>><span class="glyphicon glyphicon-user"></span>Driver Sign Up</a></li>
+      	<li><a href=<%=new_user_session_path%>><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    	</ul>
+		<% end %>
+  </div>
+</nav>
+  
+<div class="container">
+	<h3>WELCOME TO OLA</h3>
+	<p>HAPPY JOURNEY</p>
+</div>
+
+</body>
+</html>
