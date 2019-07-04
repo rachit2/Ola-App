@@ -8,7 +8,7 @@
 		  <li><b>User_id:-</b><%=ride.user_id%></li>
 		</ul>
 		<%= link_to 'Accept And Start Ride', accept_ride_path(ride:ride, driver:current_user.id) %>  |
-		<%= link_to 'Reject', drivers_path %><br>
+		<%= link_to 'Reject', drivers_path(ride:ride, driver:current_user.id) %><br>
 		==========================<br>
 <% end %>
   |

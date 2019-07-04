@@ -1,5 +1,8 @@
 <h1>Hello <%=current_user.name %></h1>
 
-<%= link_to 'My Profile', driver_path(current_user.id) %><br>
-<%= link_to 'Ride Requests', ride_request_path %><br>
+<%= link_to 'My Profile', driver_path(current_user.id) %>
+<p>
+<%= link_to 'Ride Requests', ride_request_path %>
+ <span class="badge badge-light">2</span>
+</p>
 <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>

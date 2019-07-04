@@ -1,23 +1,29 @@
 <h1>Edit Your Details</h1>
-<%= form_with( model: @driver , local: true) do |form| %>
-<p>
+<%= form_for @driver, :url => { :action => "update", :id => current_user.id}, remote: true do |form|%>
+      
+  <p>
     <%= form.label :name %><br>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, value:current_user.name %>
   </p>
   <p>
     <%= form.label :mobile %><br>
-    <%= form.text_area :mobile %>
+    <%= form.text_area :mobile,value:current_user.mobile %>
+  </p>
+  <p>
+    <%= form.label :city %><br>
+    <%= form.text_area :city,value:City.where(id:current_user.city_id).pluck("name").first %>
   </p>
   <p>
     <%= form.label :email %><br>
-    <%= form.text_area :email %>
+    <%= form.text_area :email, value:current_user.email %>
   </p>
   <p>
     <%= form.label :address %><br>
-    <%= form.text_area :address %>
+    <%= form.text_area :address, value:current_user.address %>
   </p>
   <p>
     <%= form.submit %>
   </p>
 <% end %>
-<%= link_to 'Back', driver_path,:id => current_user.id   %>
+<%= link_to 'Back', driver_path,:id => current_user.id %>
+ 

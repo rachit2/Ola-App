@@ -1,22 +1,23 @@
 	<% if user_signed_in? %>
 		<% if (current_user.role_ids.uniq == [2] )%>
-			<ul class="nav navbar-nav navbar-right">
+			<ul >
       	<li class="btn" ><a href="<%=customer_index_path %>"> Take a Ride</a></li>
       	<li class="btn"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
     	</ul>
 		<% elsif (current_user.role_ids.uniq == [3] )%>
-			<ul class="nav navbar-nav navbar-right">
+			<ul >
 	      <li class="btn"><a href="<%=drivers_path %>">Driver </a></li>
-	      <li class="btn"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %>Sign Out</li>
+	      <li class="btn"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
   		</ul>
     <% end %>
 		<% else %> 
-    	<ul class="nav navbar-nav navbar-right">
+    	<ul >
       	<li class="btn"><a href=<%=new_user_registration_path(:role_id=>2) %>>Customer Signup</a></li>
       	<li class="btn"><a href=<%=new_user_registration_path(:role_id=>3)%>>Driver Sign Up</a></li>
       	<li class="btn"><a href=<%=new_user_session_path%>> Login</a></li>
     	</ul>
 		<% end %>
+
   </div>
 </nav>
   

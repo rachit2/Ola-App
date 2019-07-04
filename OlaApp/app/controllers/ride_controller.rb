@@ -30,7 +30,7 @@ class RideController < ApplicationController
       flash[:alert] = "Driver Assigned!"
      @ride.status = "pending"
      @ride.save
-      redirect_to action: 'show', id: current_user.id, fare: @fare, amt: @amt
+      redirect_to action: 'show', id: @ride.id, fare: @fare, amt: @amt, ride: @ride
     else
         flash[:alert] = "Cab Not Available!"
         render template: 'customer/index'
@@ -54,7 +54,11 @@ class RideController < ApplicationController
     @ride = Ride.new
   end
 
-  def show; end
+  def show
+  
+    @ride=Ride.find(params[:id])
+
+   end
 
   private
   def ride_params

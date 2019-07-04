@@ -3,6 +3,7 @@
   <li><b>Mobile:-</b><%=current_user.mobile%></li> 
   <li><b>Email:-</b><%=current_user.email%></li>
   <li><b>Address:-</b><%=current_user.address%></li>
+  <li><b>City:-</b><%=City.where(id:current_user.city_id).pluck("name").first %></li>
 </ul>
 
 

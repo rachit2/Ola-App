@@ -91,6 +91,7 @@ Devise.setup do |config|
   config.skip_session_storage = [:http_auth]
 
   config.scoped_views = true
+  
 
   # By default, Devise cleans up the CSRF token on authentication to
   # avoid CSRF token fixation attacks. This means that, when using AJAX
