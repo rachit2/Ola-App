@@ -4,5 +4,5 @@
 </b>Total Fare=
 <%= @fare %>
 <br>	
-<%= link_to 'Pay', payment_index_path(fare:@fare), method: :post %>
+<div class="btn"><%= link_to 'Pay', payment_index_path(fare:@fare), method: :post %></div>
 </h1>

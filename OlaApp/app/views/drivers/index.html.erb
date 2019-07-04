@@ -1,4 +1,4 @@
-<h1>Hello Driver</h1>
+<h1>Hello <%=current_user.name %></h1>
 
 <%= link_to 'My Profile', driver_path(current_user.id) %><br>
 <%= link_to 'Ride Requests', ride_request_path %><br>

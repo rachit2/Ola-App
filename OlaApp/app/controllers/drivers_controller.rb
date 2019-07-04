@@ -22,16 +22,11 @@ class DriversController < ApplicationController
 	  	@driver=DriverDetail.find(DriverDetail.where(user_id:params[:driver]).ids).first
 	  	@ride.status="completed"
 	  	@driver.status="Available"
-	  	 
 	  	@driver.save
 	  	@ride.save
-	 else	 	
-
-	 
-	 	@driver_id= DriverDetail.where(user_id:current_user.id).ids.first
-  	@ride_history = Ride.all.select { |m| m.driver_detail_id == @driver_id}
-  
 	  end
+      @driver_id= DriverDetail.where(user_id:current_user.id).ids.first
+      @ride_history = Ride.all.select { |m| m.driver_detail_id == @driver_id}
 
   end
 

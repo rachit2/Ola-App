@@ -17,6 +17,7 @@ gem 'bootstrap-sass'
 
 gem 'autoprefixer-rails'
 
+gem 'rails_layout'
 
 gem 'pry'
 

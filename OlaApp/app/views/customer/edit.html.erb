@@ -1,5 +1,6 @@
 <h1>Edit Your Details</h1>
 <%= form_for @customer, :url => { :action => "update", :id => current_user.id}, remote: true do |form|%>
+      
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name, value:current_user.name %>
@@ -25,3 +26,4 @@
   </p>
 <% end %>
 <%= link_to 'Back', customer_path,:id => current_user.id %>
+ 
