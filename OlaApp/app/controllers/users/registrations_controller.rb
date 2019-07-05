@@ -12,15 +12,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
+
     resource.role_ids = params[:user][:role_id]
+    
     if params[:user][:city].present?
       resource.city_id = City.where(name:params[:user][:city]).first.id
     end
 
-    if resource.save
-      redirect_to new_user_session_path
- 
-    end
+      resource.save
+      
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
@@ -33,6 +33,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         respond_with resource, location: after_inactive_sign_up_path_for(resource)
        end
       end
+    super
  end
 
   # def assign_role

@@ -1,5 +1,7 @@
 class CustomerController < ApplicationController
   include HTTParty
+  layout 'customer'
+
   def index; end
   def create; end
   def book_a_cab

@@ -1,3 +1,29 @@
 // Place all the styles related to the customer controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+  
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+body{
+  background-repeat: no-repeat center center scroll; 
+       background-size: cover;
+       font-family: Verdana,sans-serif;
+    background-image: url("ola_cab.jpeg");
+      
+}
+main {
+  background-color: #eee;
+  padding: 20px;
+    font-weight:bold;
+    /*width: 80%;*/
+  }
+header {
+  background-color:black;
+/*  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+*/  /*box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);*/
+  /*margin-bottom: 20px;*/
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}

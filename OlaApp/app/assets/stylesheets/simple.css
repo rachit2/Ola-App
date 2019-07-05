@@ -3,19 +3,120 @@
  */
 
 body{
-  background-image: url("ola_cab.jpg");
-  background-repeat: no-repeat center center fixed; 
+  background-repeat: no-repeat center center scroll; 
        background-size: cover;
        font-family: Verdana,sans-serif;
-
+    background-image: url("ola_cab.jpg");
+      
 }
+.citylights {
+  color: #C0C0C0;
+  text-shadow: 0 0 5px #A0522D, 0 0 10px #A0522D, 0 0 15px #708090, 0 0 20px #708090, 0 0 30px #C0C0C0, 0 0 40px #C0C0C0;
+}
+
+
+
+.form-control{
+    height: 40px;
+    box-shadow: none;
+    color: #969fa4;
+  }
+  .form-control:focus{
+    border-color: #5cb85c;
+  }
+    .form-control, .btn{        
+        border-radius: 3px;
+    }
+  .signup-form{
+    width: 400px;
+    margin: 0 auto;
+    padding: 30px 0;
+  }
+  .signup-form h2{
+    color: #636363;
+        margin: 0 0 15px;
+    position: relative;
+    text-align: center;
+    }
+  .signup-form h2:before, .signup-form h2:after{
+    content: "";
+    height: 2px;
+    width: 30%;
+    background: #d4d4d4;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+  } 
+  .signup-form h2:before{
+    left: 0;
+  }
+  .signup-form h2:after{
+    right: 0;
+  }
+    .signup-form .hint-text{
+    color: #999;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+    .signup-form form{
+    color: #999;
+    border-radius: 3px;
+      margin-bottom: 15px;
+        background: #f2f3f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+  .signup-form .form-group{
+    margin-bottom: 20px;
+  }
+  .signup-form input[type="checkbox"]{
+    margin-top: 3px;
+  }
+  .signup-form .btn{        
+        font-size: 16px;
+        font-weight: bold;    
+    min-width: 140px;
+        outline: none !important;
+    }
+  .signup-form .row div:first-child{
+    padding-right: 10px;
+  }
+  .signup-form .row div:last-child{
+    padding-left: 10px;
+  }     
+    .signup-form a{
+    color: #fff;
+    text-decoration: underline;
+  }
+    .signup-form a:hover{
+    text-decoration: none;
+  }
+  .signup-form form a{
+    color: #5cb85c;
+    text-decoration: none;
+  } 
+  .signup-form form a:hover{
+    text-decoration: underline;
+  }  
+
+.register_css
+{
+    background-color: #eee;
+  padding: 20px;
+    font-weight:bold;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 main {
   background-color: #eee;
   padding: 20px;
-    font-weight:bold
+    font-weight:bold;
+    /*width: 80%;*/
   }
 header {
-  background-color: black;
+  background-color:black;
 /*  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
 */  /*box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);*/
@@ -30,7 +131,13 @@ ul.nav li a {
   color: #777777;
   text-decoration: none;
   text-shadow: 0 1px 0 white;
-}/*
+}
+/*
+.container
+{
+  width:30%;
+}*/
+/*
 .flash_notice, .flash_alert {
   padding: 8px 35px 8px 14px;
   margin-bottom: 20px;
