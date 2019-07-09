@@ -1,29 +1,31 @@
-<h1>Ride Details:-</h1>
-  
-    <b>from=</b>
-    <%= @ride.pickup_point %>
-    <br><b>to=</b>
-    <%= @ride.drop_point %>
-    <br><b>total distance=</b>
-    <%= @ride.distance %>
-    <br><b>status=</b><%= @ride.status %>
+<main role="main">
+<%= render 'layouts/messages' %>
+  <h1>Ride Details:-</h1>  
+  <b>from=</b>
+  <%= @ride.pickup_point %>
+  <br><b>to=</b>
+  <%= @ride.drop_point %>
+  <br><b>total distance=</b>
+  <%= @ride.distance %>
+  <br><b>status=</b><%= @ride.status %>
+  <br>
+  <% if (current_user.role_ids.uniq==[2] )%>
+    <% @fare=params[:fare] %>
+    <b>Total Fare=</b>
+    <%= @fare %>
     <br>
-    <% if (current_user.role_ids.uniq==[2] )%>
-      <% @fare=params[:fare] %>
-      <b>Total Fare=</b>
-      <%= @fare %>
-      <br>
     <b>
     After Coupon Amount To be Paid=
     <%=params[:amt]%>
     </b>
     <br>
-    <%=link_to "End Ride And Pay now", payment_index_path(:fare=>params[:amt])%>
+    <%=link_to "End Ride And Pay now", payment_index_path(:fare=>params[:amt])%> |
     <%=link_to "Cancel Ride", cancel_ride_path %>
-    <% elsif (current_user.role_ids.uniq==[3] )%>
-      <% @fare=Payment.last.total_amount %>
-      <b>Total Fare=</b>
-      <%= @fare %>
-      <br>          
-      <%=link_to "End Ride", driver_path(ride:@ride,driver:current_user.id)%>
-    <% end %> 
+  <% elsif (current_user.role_ids.uniq==[3] )%>
+    <% @fare=Payment.last.total_amount %>
+    <b>Total Fare=</b>
+    <%= @fare %>
+    <br>          
+    <%=link_to "End Ride", driver_path(ride:@ride,driver:current_user.id)%>
+  <% end %> 
+</main>

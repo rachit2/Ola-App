@@ -1,8 +1,11 @@
-<h1>
-<b>Payment</b> 
-<br>
-</b>Total Fare=
-<%= @fare %>
-<br>	
-<div class="btn"><%= link_to 'Pay', payment_index_path(fare:@fare), method: :post %></div>
-</h1>
+<main role="main">
+	<%= render 'layouts/messages' %>
+	<h1>
+	<b>Payment</b> 
+	<br>
+	</b>Total Fare=
+	<%= @fare %>
+	<br>	
+	<div class="btn"><%= link_to 'Pay', payment_index_path(fare:@fare), method: :post %></div>
+	</h1>
+</main>

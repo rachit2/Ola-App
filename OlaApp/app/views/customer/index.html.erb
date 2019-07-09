@@ -1,5 +1,4 @@
-
 <h1>Hello <%=current_user.name %> </h1>
-		  <%= link_to "Book a Ride", ride_index_path %><br>
-      <%= link_to 'My Profile', customer_path(current_user.id) %><br>
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+<%= link_to "Book a Ride", ride_index_path %><br>
+<%= link_to 'My Profile', customer_path(current_user.id) %><br>
+<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>

@@ -1,73 +1,61 @@
 <div class="signup-form">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-<h2>Register</h2>
-  <p class="hint-text">Create your account. It's free and only takes a minute.</p>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <h2>Register</h2>
+      <p class="hint-text">Create your account. It's free and only takes a minute.</p>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.hidden_field :role_id, :value => params[:role_id] %>  
+      <div class="form-group">
+        <div class="field">  
 
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :role_id, :value => params[:role_id] %>  
-
-    <div class="form-group">
-      <div class="field">  
           <%= f.label :name %><br />
-          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control"%>
+        </div>
       </div>
-    <div>
-
-    <div class="form-group">
-      <div class="field">
-        <%= f.label :mobile %><br />
-        <%= f.text_field :mobile, autofocus: true, autocomplete: "mobile",class: "form-control" %>
+      <div class="form-group">
+        <div class="field">
+          <%= f.label :mobile %><br />
+          <%= f.text_field :mobile, autofocus: true, autocomplete: "mobile",class: "form-control" %>
+        </div>
       </div>
-    </div>
-    
-    <div class="form-group">
-      <div class="field">
-        <%= f.label :address %><br />
-        <%= f.text_field :address, autofocus: true, autocomplete: "address",class: "form-control" %>
+      <div class="form-group">
+        <div class="field">
+          <%= f.label :address %><br />
+          <%= f.text_field :address, autofocus: true, autocomplete: "address",class: "form-control" %>
+        </div>
       </div>
-    </div>
-
-    <div class="form-group">
-      <div class="field">
-        <%= f.label :city %><br />
-        <%= f.text_field :city, autofocus: true, autocomplete: "address",class: "form-control" %>
+      <div class="form-group">
+        <div class="field">
+          <%= f.label :city %><br />
+          <%= f.text_field :city, autofocus: true, autocomplete: "address",class: "form-control" %>
+        </div>
       </div>
-    </div>
-
-    <div class="form-group">
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control" %>
+      <div class="form-group">
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control" %>
+        </div>
       </div>
-    </div>
-
-  <div class="form-group">
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" ,class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: "form-control"%>
-    </div>
-  </div>
-
-    <div class="form-group">
-      <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
-    </div>
-
-  <div class="actions"> 
-    <%= f.submit "Sign Up" ,class: "btn btn-success btn-lg btn-block" %>
-  </div>
-
-<% end %><br>
-
-<%= render "devise/shared/links" %>
-
+      <div class="form-group">
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" ,class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: "form-control"%>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+      </div>
+      <div class="actions"> 
+        <%= f.submit "Sign Up" ,class: "btn btn-success btn-lg btn-block" %>
+      </div><br>
+       <%= render "devise/shared/links" %>
+  <% end %>
 </div>
