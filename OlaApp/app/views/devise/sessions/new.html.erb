@@ -7,14 +7,14 @@
   <div class="field">
     <div class="form-group">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", :required=>true %>
     </div>
   </div>
   
   <div class="field">
     <div class="form-group">
       <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "form-control", :required=>true %>
    </div>
   </div>
   <% if devise_mapping.rememberable? %>

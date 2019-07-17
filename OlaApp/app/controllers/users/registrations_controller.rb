@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   # before_action :action_before_create, only: :create
   def create
+    byebug
     # super
     # build_resource(sign_up_params)
     # resource.role_ids = params[:user][:role_id]
@@ -21,10 +22,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # resource.save
     build_resource(sign_up_params)
     resource.role_ids = params[:user][:role_id]
-    if params[:user][:city].present?
-      resource.city_id = City.where(name:params[:user][:city]).first.id
+    city=params[:user][:city].downcase
+    if city.present?
+      resource.city_id = City.where(name:city).first.id
     end
-    resource.save
+
+  if !(resource.save)
+    redirect_to new_user_registration_path(:role_id=>params[:user][:role_id]) and return
+  end
+
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?

@@ -45,7 +45,13 @@
 
 	# DriverDetail.create(license_no: 'AB15', expiry_date: '22-10-2016', shift: '10-8', status: 'Available', tenure_expiry_date:'15-2-2030', user_id: 6)
 
+Coupon.create(description:"Off50",status:"Available")
 
- CabDetail.create(number_plate:"MP26DK8332", circle_id:1,cab_id:1,user_id:3)
- CabDetail.create(number_plate:"MP26DK8332", circle_id:2,cab_id:1,user_id:4)
- CabDetail.create(number_plate:"MP26DK8332", circle_id:1,cab_id:1,user_id:5)
+Coupon.create(description:"Off100",status:"NA")
+Coupon.create(description:"Off60",status:"NA")
+
+
+
+ # CabDetail.create(number_plate:"MP26DK8332", circle_id:1,cab_id:1,user_id:3)
+ # CabDetail.create(number_plate:"MP26DK8332", circle_id:2,cab_id:1,user_id:4)
+ # CabDetail.create(number_plate:"MP26DK8332", circle_id:1,cab_id:1,user_id:5)

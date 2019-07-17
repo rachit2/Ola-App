@@ -8,26 +8,29 @@
         <div class="field">  
 
           <%= f.label :name %><br />
-          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control"%>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", :required => true %>
         </div>
       </div>
       <div class="form-group">
         <div class="field">
           <%= f.label :mobile %><br />
-          <%= f.text_field :mobile, autofocus: true, autocomplete: "mobile",class: "form-control" %>
+          <%= f.text_field :mobile, autofocus: true, autocomplete: "mobile",class: "form-control", :required => true %>
         </div>
       </div>
       <div class="form-group">
         <div class="field">
           <%= f.label :address %><br />
-          <%= f.text_field :address, autofocus: true, autocomplete: "address",class: "form-control" %>
+          <%= f.text_field :address, autofocus: true, autocomplete: "address",class: "form-control", :required => true %>
         </div>
       </div>
+      
       <div class="form-group">
         <div class="field">
           <%= f.label :city %><br />
-          <%= f.text_field :city, autofocus: true, autocomplete: "address",class: "form-control" %>
+          <% cities = City.all.pluck("name").uniq %>
+          <%= f.select :city,cities,:prompt=>'Select One',class: "form-control" %>
         </div>
+
       </div>
       <div class="form-group">
         <div class="field">

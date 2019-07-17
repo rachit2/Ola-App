@@ -1,14 +1,20 @@
 class CustomerController < ApplicationController
   include HTTParty
   layout 'customer'
-  def index; end
+  def index
+  end
   def create; end
   def book_a_cab
     @driver=DriverDetail.where(status:"Available").pluck(:id).first
   end
   def show
     #@customer = User.find(current_user.id)
-    @ride = Ride.all.select { |m| m.user_id == current_user.id }
+    
+    if params[:status]=="save_for_later"
+      @ride=Ride.all.select{|m| m.user_id==current_user.id && m.status=="save_for_later"}
+    else
+      @ride = Ride.all.select { |m| m.user_id == current_user.id && m.status!="save_for_later" }
+    end
   end
  def update
   @customer = User.find(current_user.id)
